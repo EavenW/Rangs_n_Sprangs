@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+#class Model:
+	#figure out how to built the board of potential locations for 
+
+class Node:
+	def __init__(self,i,j,pos):
+		self.i = i  # horizontal index in the grid
+		self.j = j  # vertical index in the grid 
+		self.edge = False # informs whether node is on an edge rod
+		self.pos = [pos[0],pos[1]] # physical location
+		self.x = pos[0]  # horizontal location (physical)
+		self.y = pos[1]  # vertical location 
+		
+		#self.vel = [vel[0],vel[1]] # velocity for eulerian update
+
+	def distance(self, another_node):
+		from math import hypot
+		diff_x = self.x - another_node.x
+		diff_y = self.y - another_node.y
+		distance_total = hypot(diff_x, diff_y)
+		return distance_total
+
+
+class Spring:
+	def __init__(self,pos,length,k):
+		self.pos = [x,y]
+		self.length = length
+		self.k = spring_constant
+		
